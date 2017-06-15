@@ -4,19 +4,112 @@
 <body>
     <center><h1>
 
-      <p id="msg">Question.</p>
+      <p id="msg"></p>
       <button id="yButton">Yes</button>
       <button id="nButton">No</button>
 
     </h1></center>
 
-  <script src="file.js"></script>
   <script type="text/javascript">
 
-      alert("Pense em um Animal.");
-      //prompt("Gathering info");
-      document.getElementById("yButton").onclick = answer.y;
-      document.getElementById("nButton").onclick = answer.n;
+  //-------------------No
+
+  class No {
+    apre
+  }
+
+  //----------------Classificação
+
+  class Classificacao extends No {
+
+    constructor(caracteristica, ladoSim, ladoNao){
+      this.caracteristica = caracteristica;
+      this.ladoSim = ladoSim;
+      this.ladoNao = ladoNao;
+  }
+
+    aprendeCom(jogador) {
+      if (jogador.responda("O animal que vc pensou " + this.caracteristica + "?"))
+        this.ladoSim = this.ladoSim.aprendeCom(jogador);
+      else
+        this.ladoNao = this.ladoNao.aprendeCom(jogador);
+
+        console.log(this);
+      return this;
+    }
+  }
+
+
+  //----------------Animal
+
+  class Animal extends No {
+
+    constructor(nome){
+      this.nome = nome;
+    }
+
+    aprendeCom(jogador) {
+
+      if(jogador.responda("O animal que vc pensou é o(a) " + this.nome + "?")) {
+        jogador.considere("Acertei de novo!");
+        return this;
+      } else {
+        var novoNome = jogador.insira("Em qual animal pensastes?");
+        var caracteristica = jogador.insira("O(a) " + novoNome + " ______," + " mas o " + this.nome + " não.");
+        var novoAnimal = new Animal(novoNome);
+        console.log(this);
+        return new Classificacao(caracteristica, novoAnimal, this);
+      }
+
+    }
+
+  }
+
+
+  //----------------Jogador
+
+  class Jogador {
+
+    considere(mensagem){
+      alert(mensagem);
+    }
+
+    responda(pergunta) {
+      document.getElementById("msg").innerHTML = pergunta;
+      document.getElementById("yButton").addEventListener("click", function(){
+          return true});
+      document.getElementById("nButton").addEventListener("click", function(){
+              return false});
+    }
+
+    insira(pergunta){
+      var temp = new Jogador();
+      var result = prompt(pergunta);
+      if (result == null) return temp.insira(pergunta);
+      return result;
+    }
+  }
+
+
+  //----------------Main
+
+  class Main {
+
+    main() {
+
+      var jogador = new Jogador();
+      var raiz = new Animal("Leão");
+
+      while(true) {
+        jogador.considere("Pense em um animal.");
+        raiz = raiz.aprendeCom(jogador);
+      }
+    }
+  }
+
+    var init = new Main();
+    init.main();
+
 
   </script>
 </body>
