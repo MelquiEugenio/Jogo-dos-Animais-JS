@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><title>Webtest</title></head>
+<body>
+    <p id="msg">Was this Animal a Lion?</p>
+    <button id="yButton">Yes</button>
+    <button id="nButton">No</button>
+  <script src="file.js"></script>
+  <script type="text/javascript">
+
+      alert("Pense em um Animal.");
+      prompt("Esse Animal");
+      document.getElementById("yButton").addEventListener("click", answer.y);
+      document.getElementById("nButton").addEventListener("click", answer.n);
+      document.getElementById("msg").innerHTML = answer.a;
+
+  </script>
+</body>
+</html>
