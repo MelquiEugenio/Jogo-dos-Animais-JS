@@ -2,17 +2,16 @@
 <html>
 <head><title>Webtest</title></head>
 <body>
-    <p id="msg">Was this Animal a Lion?</p>
-    <button id="yButton">Yes</button>
-    <button id="nButton">No</button>
+    <center><p id="msg">Hello World</p>
+    <button id="yButton" width=center hight=center>Yes</button>
+    <button id="nButton">No</button></center>
   <script src="file.js"></script>
   <script type="text/javascript">
 
       alert("Pense em um Animal.");
-      prompt("Esse Animal");
+      //prompt("Entre uma característica que o Animal anterior não tem.");
       document.getElementById("yButton").addEventListener("click", answer.y);
       document.getElementById("nButton").addEventListener("click", answer.n);
-      document.getElementById("msg").innerHTML = "Hello World";
 
   </script>
 </body>

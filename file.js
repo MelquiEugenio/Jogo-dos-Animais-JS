@@ -1,16 +1,11 @@
 var answer = {
-  a: "this",
   y: function () {
-    this.ans = "hou";
-    console.log(answer.a);
+    document.getElementById("msg").innerHTML = "You've clicked Yes.";
   },
   n: function () {
-  this.answer = "hey";
-  console.log(answer.a);
+  document.getElementById("msg").innerHTML = "You've clicked No.";
   }
 }
-
-console.log(answer)
 
 /*
 class Node {
