@@ -14,7 +14,6 @@ class Classificacao {
    else
      this.ladoNao = this.ladoNao.aprendeCom(jogador);
 
-     console.log(this);
    return this;
  }
 }
@@ -37,7 +36,6 @@ class Animal {
      var novoNome = jogador.insira("Em qual animal pensastes?");
      var caracteristica = jogador.insira("O(a) " + novoNome + " ______," + " mas o " + this.nome + " não.");
      var novoAnimal = new Animal(novoNome);
-     console.log(this);
      return new Classificacao(caracteristica, novoAnimal, this);
    }
  }
