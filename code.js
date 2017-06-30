@@ -75,6 +75,15 @@ class Main {
    while(true) {
      jogador.considere("Pense em um animal.");
      raiz = raiz.aprendeCom(jogador);
+     console.log(raiz);
    }
  }
 }
+
+var express = require('express');
+var app = express();
+var init = new Main();
+
+app.get('/', function (req, res) {
+  res.send(init.main());
+});

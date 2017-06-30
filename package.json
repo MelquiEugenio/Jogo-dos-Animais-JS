@@ -1,0 +1,26 @@
+{
+  "name": "Jogo-dos-Animais-JS",
+  "version": "0.0.1",
+  "description": "Webapp in NodeJS implementing a binary tree.",
+  "engines": {
+    "node": "6.10.3",
+    "npm": "3.10.10"
+  },
+  "main": "code.js",
+  "scripts": {
+    "start": "node code.js"
+  },
+  "dependencies": {
+    "express": "4.15.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MelquiEugenio/Jogo-dos-Animais-JS"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
+}
