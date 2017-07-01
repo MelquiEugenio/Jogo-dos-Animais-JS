@@ -79,11 +79,3 @@ class Main {
    }
  }
 }
-
-var express = require('express');
-var app = express();
-var init = new Main();
-
-app.get('/', function (req, res) {
-  res.send(init.main());
-});
