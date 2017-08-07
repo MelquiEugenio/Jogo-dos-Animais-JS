@@ -1,0 +1,90 @@
+<!--HTML+CSS+JS-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mind Reading Game</title>
+    <style>
+        body{background: skyblue;}
+    </style>
+  </head>
+  <body>
+    <script>
+
+      class Classificacao {
+
+         constructor(caracteristica, ladoSim, ladoNao){
+           this.caracteristica = caracteristica;
+           this.ladoSim = ladoSim;
+           this.ladoNao = ladoNao;
+         }
+
+       aprendeCom(jogador) {
+         if (jogador.responda("Do the animal you've though " + this.caracteristica + "?"))
+           this.ladoSim = this.ladoSim.aprendeCom(jogador);
+         else
+           this.ladoNao = this.ladoNao.aprendeCom(jogador);
+
+         return this;
+       }
+      }
+
+      class Animal {
+
+       constructor(nome){
+         this.nome = nome;
+       }
+
+       aprendeCom(jogador) {
+
+         if(jogador.responda("Is the animal you've thought the " + this.nome + "?")) {
+           jogador.considere("Got it, I'm a genius!");
+           return this;
+         } else {
+           var novoNome = jogador.insira("In which animal have you thought?");
+           var caracteristica = jogador.insira("The " + novoNome + " ______," + " but the " + this.nome + " doesn't.");
+           var novoAnimal = new Animal(novoNome);
+           return new Classificacao(caracteristica, novoAnimal, this);
+         }
+       }
+      }
+
+      class Jogador {
+
+       considere(mensagem){
+         alert(mensagem);
+       }
+
+       responda(pergunta) {
+         return confirm(pergunta);
+       }
+
+       insira(pergunta){
+         var temp = new Jogador();
+         var result = prompt(pergunta);
+         if (result == null) return temp.insira(pergunta);
+         return result;
+       }
+      }
+
+      class Main {
+
+       main() {
+
+         var jogador = new Jogador();
+         var raiz = new Animal("Lion");
+
+         while(true) {
+           jogador.considere("Think about an animal.");
+           raiz = raiz.aprendeCom(jogador);
+         }
+       }
+      }
+
+      var init = new Main();
+
+      init.main();
+
+    </script>
+  </body>
+</html>

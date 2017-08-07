@@ -1,2 +1,2 @@
-# Jogo-dos-Animais-NodeJS
-Web game implemeting a binary tree in NodeJS.
+# Mind Reading Game
+Webapp game implemeting a binary tree in NodeJS.
