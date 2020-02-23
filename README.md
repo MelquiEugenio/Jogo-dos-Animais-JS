@@ -1,2 +1,2 @@
 # Mind Reading Game
-Webapp game implemeting a binary tree in NodeJS.
+'The Animal Game' webapp implemeting a binary tree in NodeJS.
